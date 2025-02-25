@@ -40,23 +40,34 @@ int Sorozatszamitas(std::vector<int> v)
 	}
 	return szum;
 }
+int Megszamlalas(std::vector<int> v)
+{
+	int db = 0;
+	for (size_t i = 0; i < 10; i++)
+	{
+		if (v[i] % 2 == 0)
+			db++;
+	}
+
+	return db;
+}
 
 int main()
 {
 	std::vector<int> vek(10);
 
-	std::cout << "Random szamu vektort szeretnel (R), vagy te adod meg az ertekeket (M)? \nIrd be a betut: ";
+	std::cout << "Random szamu vektort szeretnel (r), vagy te adod meg az ertekeket (m)? \nIrd be a betut: ";
 	char bemenet;
 	std::cin >> bemenet;
 	bool veletlen = false;
 
-	if (bemenet == 'R')
+	if (bemenet == 'r')
 	{
 		vek = RandomFeltolto();
 		veletlen = true;
 	}
 
-	else if (bemenet != 'M')
+	else if (bemenet != 'm')
 		std::cout << "Rossz erteket adtal meg" << std::endl;
 	else
 		vek = Manualis();
@@ -71,8 +82,9 @@ int main()
 		}
 	}
 
-	std::cout << "Elemeke osszege: ";
+	std::cout << "Elemek osszege: ";
 	std::cout << Sorozatszamitas(vek) << std::endl;
 
-
+	std::cout << "\nParos szamok darabszama: ";
+	std::cout << Megszamlalas(vek);
 }
