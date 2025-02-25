@@ -45,11 +45,22 @@ int Megszamlalas(std::vector<int> v)
 	int db = 0;
 	for (size_t i = 0; i < 10; i++)
 	{
-		if (v[i] % 2 == 0)
+		if (v[i] % 2 == 0) //paros-e az adott elem
 			db++;
 	}
 
 	return db;
+}
+int Maximumkivalasztas(std::vector<int> v)
+{
+	int max = 0;
+	for (size_t i = 1; i < 10; i++)
+	{
+		if (v[i] > v[max])
+			max = i;
+	}
+
+	return max;
 }
 
 int main()
@@ -82,9 +93,15 @@ int main()
 		}
 	}
 
-	std::cout << "Elemek osszege: ";
+	std::cout << "\nElemek osszege: ";
 	std::cout << Sorozatszamitas(vek) << std::endl;
 
 	std::cout << "\nParos szamok darabszama: ";
-	std::cout << Megszamlalas(vek);
+	std::cout << Megszamlalas(vek) << std::endl;
+
+	int idx = Maximumkivalasztas(vek);
+	std::cout << "\nLegnagyobb elem indexe: ";
+	std::cout << idx;
+	std::cout << ". és erteke: ";
+	std::cout << vek[idx] << std::endl;
 }
