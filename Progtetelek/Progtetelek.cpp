@@ -34,7 +34,7 @@ std::vector<int> Manualis(int n)
 	}
 	return vektor;
 }
-int Sorozatszamitas(std::vector<int> v)
+int Sorozatszamitas(const std::vector<int>& v)
 {
 	int szum = 0;
 	for (size_t i = 0; i < v.size(); i++)
@@ -43,7 +43,7 @@ int Sorozatszamitas(std::vector<int> v)
 	}
 	return szum;
 }
-int Megszamlalas(std::vector<int> v)
+int Megszamlalas(const std::vector<int>& v)
 {
 	int db = 0;
 	for (size_t i = 0; i < v.size(); i++)
@@ -54,9 +54,9 @@ int Megszamlalas(std::vector<int> v)
 
 	return db;
 }
-int Maximumkivalasztas(std::vector<int> v)
+size_t Maximumkivalasztas(const std::vector<int>& v)
 {
-	int max = 0;
+	size_t max = 0;
 	for (size_t i = 1; i < v.size(); i++)
 	{
 		if (v[i] > v[max])
@@ -75,7 +75,7 @@ bool PrimszamE(const int x)
 
 	return prim;
 }
-int LinearisKereses(std::vector<int> v)
+int LinearisKereses(const std::vector<int>& v)
 {
 	int i = 0;
 	while (i < v.size() && !PrimszamE(v[i]))
@@ -127,7 +127,7 @@ int main()
 	std::cout << "\nParos szamok darabszama: ";
 	std::cout << Megszamlalas(vek) << std::endl;
 
-	int idx = Maximumkivalasztas(vek);
+	size_t idx = Maximumkivalasztas(vek);
 	std::cout << "\nLegnagyobb elem indexe: ";
 	std::cout << idx;
 	std::cout << ". es erteke: ";
