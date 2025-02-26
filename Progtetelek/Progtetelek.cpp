@@ -34,19 +34,19 @@ std::vector<int> Manualis(int n)
 	}
 	return vektor;
 }
-int Sorozatszamitas(std::vector<int> v, const int n)
+int Sorozatszamitas(std::vector<int> v)
 {
 	int szum = 0;
-	for (size_t i = 0; i < n; i++)
+	for (size_t i = 0; i < v.size(); i++)
 	{
 		szum += v[i];
 	}
 	return szum;
 }
-int Megszamlalas(std::vector<int> v, const int n)
+int Megszamlalas(std::vector<int> v)
 {
 	int db = 0;
-	for (size_t i = 0; i < n; i++)
+	for (size_t i = 0; i < v.size(); i++)
 	{
 		if (v[i] % 2 == 0) //paros-e az adott elem
 			db++;
@@ -54,10 +54,10 @@ int Megszamlalas(std::vector<int> v, const int n)
 
 	return db;
 }
-int Maximumkivalasztas(std::vector<int> v, const int n)
+int Maximumkivalasztas(std::vector<int> v)
 {
 	int max = 0;
-	for (size_t i = 1; i < n; i++)
+	for (size_t i = 1; i < v.size(); i++)
 	{
 		if (v[i] > v[max])
 			max = i;
@@ -75,13 +75,13 @@ bool PrimszamE(const int x)
 
 	return prim;
 }
-int LinearisKereses(std::vector<int> v, const int n)
+int LinearisKereses(std::vector<int> v)
 {
 	int i = 0;
-	while (i < n && !PrimszamE(v[i]))
+	while (i < v.size() && !PrimszamE(v[i]))
 		i++;
 
-	bool vanPrim = i <= n;
+	bool vanPrim = i <= v.size();
 
 	if (vanPrim)
 		return i;
@@ -122,18 +122,18 @@ int main()
 	}
 
 	std::cout << "\nElemek osszege: ";
-	std::cout << Sorozatszamitas(vek, n) << std::endl;
+	std::cout << Sorozatszamitas(vek) << std::endl;
 
 	std::cout << "\nParos szamok darabszama: ";
-	std::cout << Megszamlalas(vek, n) << std::endl;
+	std::cout << Megszamlalas(vek) << std::endl;
 
-	int idx = Maximumkivalasztas(vek, n);
+	int idx = Maximumkivalasztas(vek);
 	std::cout << "\nLegnagyobb elem indexe: ";
 	std::cout << idx;
 	std::cout << ". es erteke: ";
 	std::cout << vek[idx] << std::endl;
 
-	int primIdx = LinearisKereses(vek, n);
+	int primIdx = LinearisKereses(vek);
 	if (primIdx < 0)
 		std::cout << "\nNincs primszam a vektorban." << std::endl;
 	else
