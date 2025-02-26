@@ -9,6 +9,7 @@ std::vector<int> RandomFeltolto(const int n)
 	std::mt19937 generator(r()); //random generator
 	std::uniform_int_distribution<int> dist(1, 100); //random "intervallum"
 
+	tomb.reserve(n);
 	for (size_t i = 0; i < n; i++)
 	{
 		tomb.push_back(dist(generator));
@@ -18,9 +19,11 @@ std::vector<int> RandomFeltolto(const int n)
 }
 std::vector<int> Manualis(int n)
 {
-	std::cout << "10 erteket kell megadnod" << std::endl;
+	std::cout << n;
+	std::cout << " erteket kell megadnod" << std::endl;
 	std::vector<int> vektor;
 
+	vektor.reserve(n);
 	for (size_t i = 0; i < n; i++)
 	{
 		int bem;
@@ -88,7 +91,7 @@ int LinearisKereses(std::vector<int> v, const int n)
 
 int main()
 {
-	const int n = 10;
+	const int n = 5;
 	std::vector<int> vek(n);
 
 	std::cout << "Random szamu vektort szeretnel (r), vagy te adod meg az ertekeket (m)? \nIrd be a betut: ";
