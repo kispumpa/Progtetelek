@@ -80,7 +80,7 @@ int LinearisKereses(const std::vector<int>& v)
 	while (i < v.size() && !PrimszamE(v[i]))
 		i++;
 
-	if (i <= v.size())
+	if (i < v.size())
 		return i;
 	else
 		return -1; //ilyen idx nem lehet
