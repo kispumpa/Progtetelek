@@ -71,9 +71,8 @@ bool PrimszamE(const int x)
 
 	while (i < x && x % i != 0)
 		i++;
-	bool prim = i == x;
-
-	return prim;
+	
+	return i == x;
 }
 int LinearisKereses(const std::vector<int>& v)
 {
@@ -81,9 +80,7 @@ int LinearisKereses(const std::vector<int>& v)
 	while (i < v.size() && !PrimszamE(v[i]))
 		i++;
 
-	bool vanPrim = i <= v.size();
-
-	if (vanPrim)
+	if (i <= v.size())
 		return i;
 	else
 		return -1; //ilyen idx nem lehet
@@ -92,7 +89,7 @@ int LinearisKereses(const std::vector<int>& v)
 int main()
 {
 	const int n = 5;
-	std::vector<int> vek(n);
+	std::vector<int> vek;
 
 	std::cout << "Random szamu vektort szeretnel (r), vagy te adod meg az ertekeket (m)? \nIrd be a betut: ";
 	char bemenet;
