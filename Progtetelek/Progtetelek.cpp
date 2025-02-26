@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-std::vector<int> RandomFeltolto(int n)
+std::vector<int> RandomFeltolto(const int n)
 {
 	std::vector<int> tomb; //10 elemu tomb
 	std::random_device r; //random device
@@ -31,7 +31,7 @@ std::vector<int> Manualis(int n)
 	}
 	return vektor;
 }
-int Sorozatszamitas(std::vector<int> v, int n)
+int Sorozatszamitas(std::vector<int> v, const int n)
 {
 	int szum = 0;
 	for (size_t i = 0; i < n; i++)
@@ -40,7 +40,7 @@ int Sorozatszamitas(std::vector<int> v, int n)
 	}
 	return szum;
 }
-int Megszamlalas(std::vector<int> v, int n)
+int Megszamlalas(std::vector<int> v, const int n)
 {
 	int db = 0;
 	for (size_t i = 0; i < n; i++)
@@ -51,7 +51,7 @@ int Megszamlalas(std::vector<int> v, int n)
 
 	return db;
 }
-int Maximumkivalasztas(std::vector<int> v, int n)
+int Maximumkivalasztas(std::vector<int> v, const int n)
 {
 	int max = 0;
 	for (size_t i = 1; i < n; i++)
@@ -62,7 +62,7 @@ int Maximumkivalasztas(std::vector<int> v, int n)
 
 	return max;
 }
-bool PrimszamE(int x)
+bool PrimszamE(const int x)
 {
 	int i = 2;
 
@@ -72,7 +72,7 @@ bool PrimszamE(int x)
 
 	return prim;
 }
-int LinearisKereses(std::vector<int> v, int n)
+int LinearisKereses(std::vector<int> v, const int n)
 {
 	int i = 0;
 	while (i < n && !PrimszamE(v[i]))
